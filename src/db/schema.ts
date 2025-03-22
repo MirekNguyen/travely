@@ -8,7 +8,7 @@ export const prices = pgTable("prices", {
   continent: varchar("continent", { length: 50 }).notNull(),
   createdAt: date("created_at").defaultNow(),
 });
-//
-// export const schema = {
-//   prices,
-// };
+
+export const schema = {
+  prices,
+};
