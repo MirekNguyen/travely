@@ -1,0 +1,18 @@
+volumes:
+  travel-data:
+    name: travel-data
+
+services:
+  travel-db:
+    image: postgres:17.2-alpine
+    container_name: travel-db
+    environment:
+      - POSTGRES_USER=${DB_USER:-travel}
+      - POSTGRES_DB=${DB_NAME:-travel}
+      - POSTGRES_PASSWORD=${DB_PASS:-travel}
+    ports:
+      - ${DB_PORT:-5432}:5432
+    volumes:
+      - travel-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
