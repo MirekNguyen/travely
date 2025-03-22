@@ -102,10 +102,10 @@ export default function PriceExplorer({ initialData }: PriceExplorerProps) {
           bValue = parseFloat(b.priceCzk);
         }
         
-        if (aValue < bValue) {
+        if (aValue !== null && bValue !== null && aValue < bValue) {
           return sortConfig.direction === 'ascending' ? -1 : 1;
         }
-        if (aValue > bValue) {
+        if (aValue !== null && bValue !== null && aValue > bValue) {
           return sortConfig.direction === 'ascending' ? 1 : -1;
         }
         return 0;
